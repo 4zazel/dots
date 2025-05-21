@@ -1,0 +1,247 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: JetBrainsMono Nerd Font;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 0px;
+    padding: 0 0px;
+    margin-top: 1px;
+}
+
+window#waybar {
+    background-color: rgba(0, 0, 0, 0);
+    color: #ebdbb2;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#workspaces button {
+    border-radius: 5px;
+    padding: 0px;
+    margin: 0 2px;
+    color: #ebdbb2;
+    min-width: 25px;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+    box-shadow: inherit;
+    border-bottom: none;
+    color: #282828;
+}
+
+#workspaces button.focused {
+    background-color: #ebdbb2;
+    color: #282828;
+    border-radius: 5px;
+    border-bottom: none;
+    min-width: 40px;
+    transition-duration: 0.3s;
+}
+
+#workspaces button.active {
+    background: rgba(0, 0, 0, 0);
+}
+
+#workspaces button.urgent {
+    background-color: #ebdbb2;
+    color: #000000;
+}
+
+#mode{
+    color: #ebdbb2;
+    border-radius: 5px 5px 5px 5px;
+}
+
+#custom-media,
+#custom-clock,
+#custom-pacman,
+#custom-notif,
+#custom-power,
+#scratchpad,
+#gamemode,
+#bluetooth,
+#clock,
+#window,
+#battery,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#mode,
+#idle_inhibitor,
+#tray,
+#cpu,
+#memory,
+#mpd {
+    padding: 0 14px;
+    margin: 0 0px;
+    color: #ffffff;
+}
+
+#gamemode{
+    color: #ebdbb2;
+    margin: 0px;
+    padding: 0px;
+    margin-right: 10px;
+}
+
+#custom-media{
+    background-color: #ebdbb2;
+    color: #282828;
+    border-radius: 0 0 15px;
+    font-size: 14px;
+    margin: 0 0px;
+    padding: 0 12px;
+}
+#custom-power{
+    color: #ebdbb2;
+    margin-right: 15px;
+    margin-left: 5px;
+    padding: 0px;
+}
+
+#custom-notif{
+    color: #282828;
+    background-color: #ebdbb2;
+    font-size: 16px;
+    margin: 0px;
+    padding: 0px;
+    padding-right: 6px;
+}
+
+#bluetooth{
+    font-size: 18px;
+    color: #ebddb2;
+    margin: 0 8px;
+    padding: 0px;
+}
+
+#window{
+    color: #ebdbb2;
+    padding: 0px;
+    margin: 0 10px;
+}
+
+#custom-pacman{
+    color: #ebdbb2;
+    
+    padding: 0 4px;
+    margin: 0px;
+}
+
+#temperature{
+    color: #ebdbb2;
+    margin: 0 8px;
+    padding: 0px;
+}
+
+#scratchpad{
+    color: #ebdbb2;
+    
+    margin: 0px;
+    padding: 0 8px;
+    padding-right: 16px;
+}
+
+#clock {
+    color: #ebdbb2;
+    background-color: #ebdbb2;
+}
+
+#custom-clock {
+    color: #282828;
+    background-color: #ebdbb2;
+    padding: 0px 5px;
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+#cpu{
+    color: #ebdbb2;
+    padding: 0px 8px
+}
+
+#memory{
+    color: #ebdbb2;
+    padding: 0px 8px;
+}
+
+#battery {
+    background-color: #ebdbb2;
+    color: #000000;
+}
+
+#battery.charging {
+    color: #000000;
+    background-color: #ebdbb2;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ebdbb2;
+        color: #282828;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #282828;
+    color: #282828;
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#backlight {
+    background-color: #ebdbb2;
+    color: #000000;
+}
+
+#network {
+    color: #ebdbb2;
+}
+
+#network.disconnected {
+    background-color: #ebdbb2;
+}
+
+#pulseaudio {
+    color: #282828;
+    background-color: #ebdbb2;
+    border-radius: 0 0 0 15px;
+    padding: 0 10px;
+    margin: 0px;
+}
+
+#pulseaudio.muted {
+    background-color: #ebdbb2;
+    color: #282828;
+    padding-left: 34px;
+}
+
+#idle_inhibitor {
+    background-color: rgba(0, 0, 0, 0);
+    color: #ebdbb2;
+    border-radius: 5px;
+    margin-right: 2px;
+    margin-left: 3px;
+}
+
+#idle_inhibitor.activated {
+    background-color: #ebdbb2;
+    color: #282828;
+    border-radius: 5px;
+    margin-right: 2px;
+    margin-left: 5px;
+}

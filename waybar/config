@@ -1,0 +1,196 @@
+{
+    "position": "top",
+    "layer": "top",
+    "modules-left": ["custom/media", "sway/mode", "sway/window"],
+    "modules-center": ["sway/workspaces"],
+    "modules-right": ["gamemode", "custom/pacman", "sway/scratchpad", "pulseaudio",  "custom/clock", "custom/notif"],
+    
+    "sway/workspaces": {
+        "persistent-workspaces": {
+	    "1": [],
+	    "2": [],
+	    "3": [],
+	    "4": [],
+	    "5": []
+	},
+        "disable-scroll": true,
+	"all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+	    "1": "1",
+	    "2": "2",
+	    "3": "3",
+	    "4": "4",
+	    "5": "5",
+	    "6": "6",
+	    "7": "7",
+	    "8": "8",
+	    "9": "9",
+	    "10": "10",
+        }
+    },
+    "sway/mode": {
+        "format": "{}"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "gamemode": {
+    	"format": "{glyph}",
+	"format-alt": "{glyph} {count}",
+	"glyph": "",
+	"hide-not-running": true,
+	"use-icon": true,
+	"icon-name": "input-gaming-symbolic",
+	"icon-spacing": 4,
+	"icon-size": 20,
+	"tooltip": true,
+	"tooltip-format": "Games running: {count}"
+    },
+    "sway/window": {
+        "max-length": 40
+    },
+    "custom/power": {
+        "format" : "⏻",
+	    "tooltip": false,
+	    "menu": "on-click",
+	    "menu-file": "$HOME/.config/waybar/power_menu.xml",
+	    "menu-actions": {
+	        "shutdown": "poweroff",
+		"reboot": "reboot",
+		"suspend": "systemctl suspend",
+		"hibernate": "systemctl hibernate"
+        }
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+	"interval": 1,
+        "critical-threshold": 80,
+        "format-critical": "{icon}{temperatureC}°C",
+        "format": "{icon}{temperatureC}°C",
+        "format-icons": ["", "", ""]
+    },
+    "custom/notif": {
+        "tooltip": false,
+	"format": "{icon}",
+	"format-icons": {
+	    "notification": "󱅫 ",
+	    "none": " ",
+	    "dnd-notification": "󰅸 ",
+	    "dnd-none": " "
+	    },
+	"return-type": "json",
+	"exec-if": "which swaync-client",
+	"exec": "swaync-client -swb",
+	"on-click": "swaync-client -t -sw",
+	"on-click-right": "swaync-client -d -sw",
+	"escape": true
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": true,
+        "format-icons": [" "],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "custom/pacman": {
+        "format": "󰣇 {}",
+	"return-type": "json",
+	"exec": "waybar-updates -l 50"
+    },
+    "custom/clock": {
+        "format": "{}",
+	"exec": "date +'%a %d %b %H:%M'",
+	"interval": 10,
+	"tooltip": true,
+	"tooltip-format": "{$(cal)}"
+    },
+    "custom/media": {
+        "format": "{text}",
+        "return-type": "json",
+        "max-length": 30,
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null",
+	"on-click": "playerctl play-pause"
+    },
+    "custom/separator": {
+    	"format": "|"
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "custom/nightlight": {
+        "format": "󱠂",
+	"on-click": "pkill gammastep",
+	"on-click-right": "gammastep"
+    },
+    "tray": {
+        "spacing": 10,
+    },
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": " {}%"
+    },
+    "battery": {
+        "bat": "BAT0",
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "",
+        "format-full": "100% ",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+    	"format": "{ifname}",
+	    "format-ethernet": "{ifname} ",
+        "format-wifi": "{essid} ",
+        "format-linked": "{ifname} (No IP) ",
+       	"format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "bluetooth": {
+	"format": "",
+	"format-disabled": "", // an empty format will hide the module
+	"format-connected": " {num_connections}",
+	"tooltip-format": "{device_alias}",
+	"tooltip-format-connected": " {device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}",
+	"on-click": "blueman-manager"
+    },
+    "pulseaudio": {
+        "scroll-step": 1,
+        "format": "{icon}{volume}% {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [" "]
+        },
+        "on-click": "amixer -D pulse sset Capture toggle",
+	"on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    }
+}
