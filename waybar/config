@@ -1,9 +1,9 @@
 {
     "position": "top",
     "layer": "top",
-    "modules-left": ["custom/media", "sway/mode", "sway/window"],
-    "modules-center": ["sway/workspaces"],
-    "modules-right": ["gamemode", "custom/pacman", "sway/scratchpad", "pulseaudio",  "custom/clock", "custom/notif"],
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
+    "modules-center": ["custom/clock"],
+    "modules-right": ["gamemode", "custom/media", "custom/pacman", "sway/scratchpad", "pulseaudio", "custom/notif"],
     
     "sway/workspaces": {
         "persistent-workspaces": {

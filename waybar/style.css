@@ -92,9 +92,7 @@ window#waybar.hidden {
 }
 
 #custom-media{
-    background-color: #ebdbb2;
-    color: #282828;
-    border-radius: 0 0 15px;
+    color: #ebdbb2;
     font-size: 14px;
     margin: 0 0px;
     padding: 0 12px;
@@ -113,6 +111,7 @@ window#waybar.hidden {
     margin: 0px;
     padding: 0px;
     padding-right: 6px;
+    padding-left: 12px;
 }
 
 #bluetooth{
@@ -129,10 +128,12 @@ window#waybar.hidden {
 }
 
 #custom-pacman{
-    color: #ebdbb2;
-    
+    color: #282828;
+    background-color: #ebdbb2;
+    border-radius: 0 0 0 15px;
     padding: 0 4px;
     margin: 0px;
+    padding-left: 12px;
 }
 
 #temperature{
@@ -142,11 +143,11 @@ window#waybar.hidden {
 }
 
 #scratchpad{
-    color: #ebdbb2;
-    
+    color: #282828;
+    background-color: #ebdbb2;
     margin: 0px;
     padding: 0 8px;
-    padding-right: 16px;
+    padding-right: 10px;
 }
 
 #clock {
@@ -155,8 +156,7 @@ window#waybar.hidden {
 }
 
 #custom-clock {
-    color: #282828;
-    background-color: #ebdbb2;
+    color: #ebdbb2;
     padding: 0px 5px;
     padding-right: 10px;
     font-weight: bold;
@@ -219,7 +219,6 @@ label:focus {
 #pulseaudio {
     color: #282828;
     background-color: #ebdbb2;
-    border-radius: 0 0 0 15px;
     padding: 0 10px;
     margin: 0px;
 }
