@@ -1,13 +1,58 @@
-;;Disable top bar and scroll bar
+;;
+;; Faster Startup
+;;
+(setq gc-cons-threshold 64000000)
+(add-hook 'after-init-hook #'(lambda ()
+                               ;; restore after startup
+                               (setq gc-cons-threshold 800000)))
+
+;;
+;; Settings
+;;
+
+;; Set default folder
+(setq default-directory "~/Developer/" )
+
+;; line wrap (text mode only)
+(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
+(global-visual-line-mode 1)
+(setq org-startup-indented t)
+
+;; remove beeps
+(setq visible-bell nil
+      ring-bell-function 'flash-mode-line)
+(defun flash-mode-line ()
+  (invert-face 'mode-line)
+  (run-with-timer 0.1 nil #'invert-face 'mode-line))
+
+;; Look
+(column-number-mode)
+(show-paren-mode)
+(global-hl-line-mode)
+(winner-mode t)
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
 
-;; Disable backups
-(setq make-backup-files nil)
+;; Autosave (off)
+;disable backup
+(setq backup-inhibited t)
+;disable auto save
+(setq auto-save-default nil)
+
+;; Change "yes or no" to "y or n"
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; CTR+z is undo
+(global-set-key (kbd "C-z ") 'undo)
+
+;; Marking text
+(delete-selection-mode t)
+(transient-mark-mode t)
+(setq x-select-enable-clipboard t)
 
 ;;Display line numbers
-(setq display-line-numbers-type 'relative) 
+(setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode)
 
 ;;Melpa
@@ -24,19 +69,19 @@
 ;;Enable ido mode
 (ido-mode t)
 
-;; Company mode
+;;Company mode
 (add-hook 'after-init-hook 'global-company-mode)
 
 ;;Auto close brackets
 (electric-pair-mode t)
 
 ;;disable splash screen and startup message
-(setq inhibit-startup-message t) 
+(setq inhibit-startup-message t)
 (setq initial-scratch-message nil)
 
-;; Indent style
-(setq c-default-style "linux"
-  c-basic-offset 2)
+;;Indent style
+    (setq c-default-style "linux"
+          c-basic-offset 2)
 
 ;;Resize windows
 (global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
@@ -52,7 +97,8 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(doom-gruvbox))
  '(custom-safe-themes
-   '("f1e8339b04aef8f145dd4782d03499d9d716fdc0361319411ac2efc603249326"
+   '("fd22a3aac273624858a4184079b7134fb4e97104d1627cb2b488821be765ff17"
+     "f1e8339b04aef8f145dd4782d03499d9d716fdc0361319411ac2efc603249326"
      "e8bd9bbf6506afca133125b0be48b1f033b1c8647c628652ab7a2fe065c10ef0"
      "e4a702e262c3e3501dfe25091621fe12cd63c7845221687e36a79e17cf3a67e0"
      "dfcd2b13f10da4e5e26eb1281611e43a134d4400b06661445e7cbb183c47d2ec"
@@ -60,10 +106,12 @@
      "6963de2ec3f8313bb95505f96bf0cf2025e7b07cefdb93e3d2e348720d401425"
      "b1a691bb67bd8bd85b76998caf2386c9a7b2ac98a116534071364ed6489b695d"
      default))
- '(package-selected-packages '(company doom-themes gruvbox-theme)))
+ '(display-line-numbers-type 'relative)
+ '(global-display-line-numbers-mode t)
+ '(package-selected-packages '(company doom-themes gruvbox-theme treemacs)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "JetBrainsMono Nerd Font" :foundry "JB" :slant normal :weight regular :height 151 :width normal)))))
+ '(default ((t (:family "JetBrains Mono" :foundry "nil" :slant normal :weight regular :height 150 :width normal)))))
